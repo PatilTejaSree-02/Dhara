@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Doctor {
+  id           String         @id
+  hospitalId   String         @unique
+  name         String
+  HealthRecord HealthRecord[]
+}
+
+model HealthRecord {
+  id           String   @id
+  migrantId    String
+  pocId        String?
+  doctorId     String?
+  symptoms     String
+  diagnosis    String?
+  prescription String?
+  isNotifiable Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+  Doctor       Doctor?  @relation(fields: [doctorId], references: [id])
+  Migrant      Migrant  @relation(fields: [migrantId], references: [id])
+  POC          POC?     @relation(fields: [pocId], references: [id])
+}
+
+model Migrant {
+  id           String         @id
+  athidhiId    String         @unique
+  phoneNumber  String         @unique
+  name         String
+  gender       String?
+  dob          DateTime?
+  address      String?
+  pocId        String?
+  createdAt    DateTime       @default(now())
+  HealthRecord HealthRecord[]
+  POC          POC?           @relation(fields: [pocId], references: [id])
+}
+
+model POC {
+  id           String         @id
+  pocId        String         @unique
+  name         String
+  HealthRecord HealthRecord[]
+  Migrant      Migrant[]
+}
