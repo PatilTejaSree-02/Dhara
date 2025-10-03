@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+🌱 Dhara
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dhara is a [React + Vite + TypeScript + Flask] based project focused on [insert your project’s purpose here, e.g., digital healthcare paperwork automation / prototype for Megathon ’24].
 
-Currently, two official plugins are available:
+📂 Project Structure
+Dhara/
+ ├── frontend/     # React + Vite + TypeScript (UI)
+ ├── backend/      # Flask (Python APIs + NLP/ML if used)
+ ├── README.md     # This file
+ └── ...           # Other configs
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Installation & Setup
+1. Clone the Repository
+git clone https://github.com/PatilTejaSree-02/Dhara.git
+cd Dhara
 
-## React Compiler
+2. Frontend Setup (React + Vite + TS)
+cd frontend
+npm install
+npm run dev
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-## Expanding the ESLint configuration
+Frontend will start at: http://localhost:5173
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Backend Setup (Flask)
+Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Python 3.9+
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+pip
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create Virtual Environment (recommended)
+cd backend
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install Requirements
+pip install -r requirements.txt
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Run Backend
+python app.py
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+Backend will run on: http://localhost:5000
+
+⚡ Connecting Frontend & Backend
+
+The frontend makes API calls to the backend on http://localhost:5000.
+
+Make sure both servers (frontend + backend) are running.
+
+Update API URLs in frontend/src/services/api.ts if needed.
+
+🐞 Known Issues / Work in Progress
+
+ Integration between frontend and backend still in progress.
+
+ API error handling to be improved.
+
+ Deployment steps not finalized.
+
+👥 Contributors
+
+Hasitha Narayanabhatta
+
+Teja Sree Patil
+
+📌 Notes
+
+Please raise issues or PRs for improvements.
+
+For smoother communication, we’re coordinating via WhatsApp (team + Vikash).
+
+✨ Dhara: Building impactful solutions, one step at a time.
