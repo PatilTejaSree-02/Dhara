@@ -4,9 +4,13 @@ Dhara is a [React + Vite + TypeScript + Flask] based project focused on [insert 
 
 📂 Project Structure
 Dhara/
+
  ├── frontend/     # React + Vite + TypeScript (UI)
+ 
  ├── backend/      # Flask (Python APIs + NLP/ML if used)
+ 
  ├── README.md     # This file
+ 
  └── ...           # Other configs
 
 🚀 Installation & Setup
